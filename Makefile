@@ -10,5 +10,5 @@ down:
 	docker-compose -p ${PROJECT_NAME} -f environment/development.yml down
 migrate:
 	docker exec web-php-fpm bash -c "php bin/console doctrine:schema:update --force"
-provision:
+provision: file
 	docker exec web-php-fpm bash -c "php composer.phar install"
