@@ -1,0 +1,8 @@
+app/config/parameters.yml
+web/uploads/*
+var/data/*
+var/cache
+var/logs
+var/sessions/dev
+var/sessions/prod
+vendor

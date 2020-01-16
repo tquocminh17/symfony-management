@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            {{ form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="form-group">
+                    {{ form_label(form.firstname, 'Fist name',  { 'attr': { 'class': 'form-control' }}) }}
+                    <span class="text-danger">*</span>
+                    {{ form_widget(form.firstname, { 'attr': { 'class': 'form-control', 'required': 'required', 'placeholder': 'First name' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.lastname, 'Last name',  { 'attr': { 'class': 'form-control' }}) }}
+                    <span class="text-danger">*</span>
+                    {{ form_widget(form.lastname, { 'attr': { 'class': 'form-control', 'required': 'required', 'placeholder': 'Last name' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.address, 'Street and number',  { 'attr': { 'class': 'form-control' }}) }}
+                    <span class="text-danger">*</span>
+                    {{ form_widget(form.address, { 'attr': { 'class': 'form-control', 'required': 'required', 'placeholder': 'Street and number' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.zip, 'Zip code',  { 'attr': { 'class': 'form-control' }}) }}
+                    <span class="text-danger">*</span>
+                    {{ form_widget(form.zip, { 'attr': { 'class': 'form-control', 'required': 'required', 'placeholder': 'Zip code' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.city, 'City',  { 'attr': { 'class': 'form-control' }}) }}
+                    <span class="text-danger">*</span>
+                    {{ form_widget(form.city, { 'attr': { 'class': 'form-control', 'required': 'required', 'placeholder': 'City' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.country, 'Country',  { 'attr': { 'class': 'form-control' }}) }}
+                    <span class="text-danger">*</span>
+                    {{ form_widget(form.country, { 'attr': { 'class': 'form-control', 'required': 'required', 'placeholder': 'Country' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.phone, 'Phone number',  { 'attr': { 'class': 'form-control' }}) }}
+                    <span class="text-danger">*</span>
+                    {{ form_widget(form.phone, { 'attr': { 'class': 'form-control', 'required': 'required', 'placeholder': 'Phone number' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.birthday, 'Birthday',  { 'attr': { 'class': 'form-control' }}) }}
+                    <span class="text-danger">*</span>
+                    {{ form_widget(form.birthday, { 'attr': { 'class': 'form-control', 'required': 'required', 'placeholder': 'Birthday' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.email, 'Email',  { 'attr': { 'class': 'form-control' }}) }}
+                    <span class="text-danger">*</span>
+                    {{ form_widget(form.email, { 'attr': { 'class': 'form-control', 'required': 'required', 'placeholder': 'Email', 'pattern': '.+@.+\\..+' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.picture, 'Picture',  { 'attr': { 'class': 'form-control' }}) }}
+                    {{ form_widget(form.picture, { 'attr': { 'class': 'form-control' }}) }}
+                    <p class="help-block">Allow .jpg .png</p>
+                    {% if(contact.picture) %}
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{ asset('uploads/pictures/' ~ contact.picture) }}">
+                            <div class="card-body">
+                                <p class="card-subtitle mb-2 text-muted">{{ contact.picture }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                {{ form_widget(form.submit, { 'attr': { 'class': 'btn btn-primary' }}) }}
+                <a href="{{ path('contact_show') }}" class="btn btn-light">Cancel</a>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    #container {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}

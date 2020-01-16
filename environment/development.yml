@@ -1,0 +1,31 @@
+version: "2.4"
+
+services:
+  php-fpm:
+    build:
+      context: ./php-fpm
+      args:
+        - APP_ENV=development
+    container_name: web-php-fpm
+    working_dir: /var/www/web/
+    volumes:
+      - ../:/var/www/web/
+    networks:
+      - web
+
+  nginx:
+    build: nginx
+    container_name: web-nginx
+    ports:
+        - 80:80
+    volumes_from:
+      - php-fpm
+    working_dir: /var/www/web
+    depends_on:
+      - php-fpm
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
