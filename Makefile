@@ -1,4 +1,4 @@
-PROJECT_NAME=lillydoo
+PROJECT_NAME=minh
 up: build
 	docker network create web || true
 	docker-compose -p ${PROJECT_NAME} -f environment/development.yml up -d --force-recreate
