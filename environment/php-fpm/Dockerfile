@@ -1,4 +1,4 @@
-FROM php:7.0-fpm-stretch
+FROM php:7.3-fpm-stretch
 
 RUN apt-get update -q -y \
     && apt-get install -q -y --no-install-recommends \

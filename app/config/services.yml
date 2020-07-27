@@ -31,3 +31,7 @@ services:
 
     AppBundle\Service\FileManager:
         public: true
+    AppBundle\Service\HTTPClient:
+        public: true
+    AppBundle\Factory\AdvertiserFactory:
+        public: true
